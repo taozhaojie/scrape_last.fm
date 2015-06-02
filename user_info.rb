@@ -1,6 +1,11 @@
 require 'httparty'
 require 'url'
 
+api_key = "xxxxxxxxxxxxxxxx"
+
+Limit_banned = 20
+Limit_loved = 200
+
 def getResponse(url)
 	cnt_err = 0
 	while cnt_err <= 5
@@ -38,14 +43,12 @@ def getUserInfo(response)
 	return r
 end
 
-api_key = "072a234d286841ac47e05c13999bb25c"
-
 arr_user = []
 f = File.open("user_log.csv","r")
 f.each{|line|
 	line = line.chomp
 	ln = line.split(',')
-	if ln[1].to_i >= 20 && ln[2].to_i >= 200
+	if ln[1].to_i >= Limit_banned && ln[2].to_i >= Limit_loved
 		user << ln[0]
 	end
 }
