@@ -1,6 +1,8 @@
 require 'httparty'
 require 'url'
 
+api_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
 def getResponse(url)
 	cnt_err = 0
 	while cnt_err <= 5
@@ -51,8 +53,6 @@ end
 def q(str)
 	return '"' + str + '"'
 end
-
-api_key = "072a234d286841ac47e05c13999bb25c"
 
 # get all tracks from banned and loved tracks
 puts "fetching tracks..."
